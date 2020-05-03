@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable name="isEditing" type="boolean" />
+        <variable name="isIdle" type="boolean" />
+        <variable name="shouldShowFilter" type="boolean" />
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="8dp"
+    >
+    <LinearLayout
+            android:id="@+id/search_box_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:focusableInTouchMode="true"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/search_box_bg"
+            android:gravity="center"
+    >
+
+        <ImageView
+                android:id="@+id/search_box_left"
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@{ isIdle ? @drawable/ic_search_black_24dp : @drawable/back_arrow }"
+                tools:src="@drawable/ic_search_black_24dp"
+        />
+
+        <EditText
+                android:id="@+id/search_box_input"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@android:color/transparent"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:inputType="text"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionSearch"
+                android:importantForAutofill="no"
+        />
+
+        <ImageView
+                android:id="@+id/search_box_clear"
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_close_black_24dp"
+                android:tint="@{ isEditing ? @color/black : @color/inactive_grey }"
+                tools:tint="@color/inactive_grey"
+        />
+
+    </LinearLayout>
+
+        <TextView
+                android:id="@+id/search_box_filter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_more_horiz_black_24dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="@string/filter"
+                android:drawablePadding="20dp"
+                android:layout_marginStart="12dp"
+                android:padding="8dp"
+                android:visibility="@{ shouldShowFilter ? View.VISIBLE : View.GONE }"
+                tools:visibility="visible"
+        />
+
+    </LinearLayout>
+
+
+</layout>

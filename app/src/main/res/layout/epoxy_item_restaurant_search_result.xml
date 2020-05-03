@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.restaurantfinder.models.UIModelRestaurantSearch.UIModelCuisineWithRestaurants.UIModelRestaurant" />
+
+        <variable name="restaurant"
+                  type="UIModelRestaurant" />
+
+        <variable name="favoriteClickListener"
+                  type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:padding="8dp"
+    >
+
+        <ImageView
+                android:id="@+id/restaurant_result_thumb"
+                android:layout_width="100dp"
+                android:layout_height="72dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:urlOfImage="@{ restaurant.thumbnailUrl }"
+                tools:src="@drawable/ic_favorite_black_24dp"
+        />
+
+        <TextView
+                android:id="@+id/restaurant_result_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="4dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="@{ restaurant.restaurantName }"
+                app:layout_constraintTop_toTopOf="@id/restaurant_result_thumb"
+                app:layout_constraintStart_toEndOf="@id/restaurant_result_thumb"
+                app:layout_constraintEnd_toStartOf="@id/restaurant_result_rating"
+                tools:text="Some shit name"
+        />
+        <TextView
+                android:id="@+id/restaurant_result_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:text="@{ restaurant.locationName }"
+                app:layout_constraintTop_toBottomOf="@id/restaurant_result_name"
+                app:layout_constraintStart_toEndOf="@id/restaurant_result_thumb"
+                app:layout_constraintEnd_toStartOf="@id/restaurant_result_favorite"
+                tools:text="Some shit location"
+        />
+
+        <TextView
+                android:id="@+id/restaurant_result_average_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="4dp"
+                android:text="@{ @string/restaurant_result_average_cost(restaurant.averageCostForTwo) }"
+                app:layout_constraintTop_toBottomOf="@id/restaurant_result_location"
+                app:layout_constraintStart_toEndOf="@id/restaurant_result_thumb"
+                tools:text="@string/restaurant_result_average_cost"
+
+        />
+
+        <TextView
+                android:id="@+id/restaurant_result_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:padding="2dp"
+                android:text="@{ restaurant.userRating.aggregateRating }"
+                app:customBackgroundColor="@{ restaurant.userRating.ratingColor }"
+                tools:text="3.5"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/restaurant_result_name"
+        />
+
+        <ImageView
+                android:id="@+id/restaurant_result_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:onClick="@{ favoriteClickListener }"
+                android:src="@drawable/ic_favorite_black_24dp"
+                android:tint="@{ restaurant.isFavorite ? @color/favorite_yellow : @color/black }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/restaurant_result_average_cost"
+        />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

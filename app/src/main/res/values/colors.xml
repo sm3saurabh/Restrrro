@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">@color/zomato_red</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="zomato_red">#cb202d</color>
+
+    <color name="inactive_grey">#D5CDCD</color>
+
+    <color name="favorite_yellow">#FFC107</color>
+
+</resources>

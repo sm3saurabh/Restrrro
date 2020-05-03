@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="cuisineTitle"
+                type="String" />
+    </data>
+
+    <TextView
+            android:id="@+id/cuisine_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ cuisineTitle }"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            tools:text="Cuisine A"
+    />
+</layout>

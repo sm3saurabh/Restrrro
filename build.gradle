@@ -1,0 +1,108 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+
+buildscript {
+    ext.KOTLIN_VERSION = "1.3.70"
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VERSION"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$KOTLIN_VERSION"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile.class) {
+            options.compilerArgs << "-Xmaxerrs" << "10000"
+        }
+    }
+
+    afterEvaluate {
+        if (project.plugins.hasPlugin("kotlin-kapt")) {
+            kapt {
+                javacOptions {
+                    option("-Xmaxerrs", 10000)
+                }
+            }
+        }
+    }
+}
+
+ext {
+    MIN_SDK_VERSION = 21
+    TARGET_SDK_VERSION = 28
+    COMPILE_SDK_VERSION = 28
+    BUILD_TOOLS_VERSION = "29.0.2"
+    RETROFIT_VERSION = "2.8.1"
+    ROOM_VERSION = "2.2.5"
+    LIFECYCLE_VERSION = "2.2.0"
+    COROUTINE_VERSION = "1.3.5"
+    APP_COMPAT_VERSION = "1.0.0-beta01"
+    CORE_KTX_VERSION = "1.3.0-rc01"
+    JUNIT_VERSION = "4.12"
+    TEST_RUNNER_VERSION = "1.1.0-alpha4"
+    ESPRESSO_VERSION = "3.1.0-alpha4"
+    KOTLIN_SERIALIZATION_VERSION = "0.20.0"
+    KOTLIN_SERIALIZATION_CONVERTER_VERSION = "0.5.0"
+    KOIN_VERSION = "2.1.5"
+    TRANSITION_VERSION = "1.3.1"
+    RECYCLER_VIEW_VERSION = "1.1.0"
+    EPOXY_VERSION = "3.8.0"
+    LOCATION_PROVIDER_VERSION = "17.0.0"
+    PICASSO_VERSION = "2.71828"
+}
+
+ext.deps = [
+        kotlin                      : "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION",
+        appCompat                   : "androidx.appcompat:appcompat:${APP_COMPAT_VERSION}",
+        coreKtx                     : "androidx.core:core-ktx:${CORE_KTX_VERSION}",
+        junit                       : "junit:junit:${JUNIT_VERSION}",
+        testRunner                  : "androidx.test:runner:${TEST_RUNNER_VERSION}",
+        espresso                    : "androidx.test.espresso:espresso-core:${ESPRESSO_VERSION}",
+        retrofit                    : "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}",
+        room                        : [
+                runtime            : "androidx.room:room-runtime:${ROOM_VERSION}",
+                annotationProcessor: "androidx.room:room-compiler:${ROOM_VERSION}",
+                ktx                : "androidx.room:room-ktx:${ROOM_VERSION}"
+        ],
+        kotlinSerialization: [
+                runtime         : "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${KOTLIN_SERIALIZATION_VERSION}",
+                converter: "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${KOTLIN_SERIALIZATION_CONVERTER_VERSION}"
+        ],
+
+        lifecycle                   : [
+                liveData : "androidx.lifecycle:lifecycle-livedata-ktx:${LIFECYCLE_VERSION}",
+                viewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:${LIFECYCLE_VERSION}"
+        ],
+        epoxy: [
+                core: "com.airbnb.android:epoxy:${EPOXY_VERSION}",
+                dataBinding: "com.airbnb.android:epoxy-databinding:${EPOXY_VERSION}",
+                processor: "com.airbnb.android:epoxy-processor:${EPOXY_VERSION}"
+        ],
+        coroutines                  : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${COROUTINE_VERSION}",
+        koin                        : "org.koin:koin-android-viewmodel:${KOIN_VERSION}",
+        transition: "androidx.transition:transition:${TRANSITION_VERSION}",
+        recyclerView: "androidx.recyclerview:recyclerview:${RECYCLER_VIEW_VERSION}",
+        location: "com.google.android.gms:play-services-location:${LOCATION_PROVIDER_VERSION}",
+        picasso: "com.squareup.picasso:picasso:${PICASSO_VERSION}"
+
+]
+
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
