@@ -19,4 +19,6 @@
     <string name="order_asc">Ascending</string>
     <string name="order_desc">Descending</string>
     <string name="apply">Apply filters</string>
+    <string name="empty_favorite">No favorites yet.\nRestaurants you favorite during search will appear here.</string>
+    <string name="empty_favorite_description">Image for empty favorite layout</string>
 </resources>

@@ -1,7 +1,6 @@
 package com.restaurantfinder.network.utils
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import com.restaurantfinder.network.utils.NetworkConstants
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import okhttp3.Interceptor
@@ -15,7 +14,7 @@ object NetworkUtils {
 
     fun createRetrofit(okHttpClient: OkHttpClient): Retrofit {
 
-        val json = Json(JsonConfiguration(ignoreUnknownKeys = true))
+        val json = Json(JsonConfiguration(ignoreUnknownKeys = true, isLenient = true))
 
         return Retrofit.Builder()
             .baseUrl(NetworkConstants.BASE_URL)

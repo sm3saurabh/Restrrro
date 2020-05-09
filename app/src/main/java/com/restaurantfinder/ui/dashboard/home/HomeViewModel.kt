@@ -1,7 +1,10 @@
 package com.restaurantfinder.ui.dashboard.home
 
 import android.location.Location
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.restaurantfinder.models.UIModelHome
 import com.restaurantfinder.models.UIModelRestaurantSearch
 import com.restaurantfinder.usecases.AddFavoriteRestaurantUseCase
@@ -29,25 +32,27 @@ class HomeViewModel(
 
 
     fun restaurantSearch(searchTerm: String) {
-        _data.value?.let { home ->
-            viewModelScope.safeLaunch {
-
-                val restaurantSearchResult = searchUseCase.perform(
-                    RestaurantSearchUseCase.InputParam(
-                        searchTerm,
-                        _filterOption.value ?: RestaurantSearchUseCase.InputParam.FilterOption.EMPTY,
-                        home.currentLocation.locationId
+        if (searchTerm.isNotBlank()) {
+            _data.value?.let { home ->
+                viewModelScope.safeLaunch {
+                    val restaurantSearchResult = searchUseCase.perform(
+                        RestaurantSearchUseCase.InputParam(
+                            searchTerm,
+                            _filterOption.value
+                                ?: RestaurantSearchUseCase.InputParam.FilterOption.EMPTY,
+                            home.currentLocation.locationId
+                        )
                     )
-                )
 
 
-                restaurantSearchResult?.let {
-                    _data.value = home.copy(
-                        restaurantSearchResult = restaurantSearchResult,
-                        currentHomeState = HomeState.SearchResult
-                    )
+                    restaurantSearchResult?.let {
+                        _data.value = home.copy(
+                            restaurantSearchResult = restaurantSearchResult,
+                            currentHomeState = HomeState.SearchResult
+                        )
+                    }
+
                 }
-
             }
         }
 
