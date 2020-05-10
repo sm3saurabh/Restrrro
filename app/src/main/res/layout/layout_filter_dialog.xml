@@ -1,124 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/filter_dialog_root"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-    >
+        android:id="@+id/filter_dialog_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
 
 
         <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/filter_dialog_top_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.1"
-        />
+            android:id="@+id/filter_dialog_top_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
 
         <TextView
-                android:id="@+id/filter_dialog_sort"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:text="@string/sort_by"
-                android:padding="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/filter_dialog_top_guideline"
-        />
+            android:id="@+id/filter_dialog_sort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.RF.Subtitle1"
+            android:text="@string/sort_by"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/filter_dialog_top_guideline" />
 
         <TextView
-                android:id="@+id/filter_dialog_sort_cost"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:text="@string/sort_by_cost"
-                android:background="@drawable/filter_option_selector"
-                android:padding="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="12dp"
-                app:layout_constraintStart_toStartOf="@id/filter_dialog_sort"
-                app:layout_constraintTop_toBottomOf="@id/filter_dialog_sort"
-        />
+            android:id="@+id/filter_dialog_sort_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.RF.Body2"
+            android:text="@string/sort_by_cost"
+            android:background="@drawable/filter_option_selector"
+            android:padding="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toStartOf="@id/filter_dialog_sort"
+            app:layout_constraintTop_toBottomOf="@id/filter_dialog_sort" />
 
         <TextView
-                android:id="@+id/filter_dialog_sort_rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:text="@string/sort_by_rating"
-                android:background="@drawable/filter_option_selector"
-                android:padding="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="50dp"
-                app:layout_constraintStart_toEndOf="@id/filter_dialog_sort_cost"
-                app:layout_constraintTop_toBottomOf="@id/filter_dialog_sort"
-        />
+            android:id="@+id/filter_dialog_sort_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.RF.Body2"
+            android:text="@string/sort_by_rating"
+            android:background="@drawable/filter_option_selector"
+            android:padding="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="50dp"
+            app:layout_constraintStart_toEndOf="@id/filter_dialog_sort_cost"
+            app:layout_constraintTop_toBottomOf="@id/filter_dialog_sort" />
 
         <TextView
-                android:id="@+id/filter_dialog_order"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:text="@string/order"
-                android:padding="8dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filter_dialog_sort_cost"
-        />
+            android:id="@+id/filter_dialog_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.RF.Subtitle1"
+            android:text="@string/order"
+            android:padding="8dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/filter_dialog_sort_cost" />
 
         <TextView
-                android:id="@+id/filter_dialog_order_asc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:background="@drawable/filter_option_selector"
-                android:text="@string/order_asc"
-                android:padding="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="12dp"
-                app:layout_constraintStart_toStartOf="@id/filter_dialog_order"
-                app:layout_constraintTop_toBottomOf="@id/filter_dialog_order"
-        />
+            android:id="@+id/filter_dialog_order_asc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.RF.Body2"
+            android:background="@drawable/filter_option_selector"
+            android:text="@string/order_asc"
+            android:padding="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toStartOf="@id/filter_dialog_order"
+            app:layout_constraintTop_toBottomOf="@id/filter_dialog_order" />
 
         <TextView
-                android:id="@+id/filter_dialog_order_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:background="@drawable/filter_option_selector"
-                android:text="@string/order_desc"
-                android:padding="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="50dp"
-                app:layout_constraintStart_toEndOf="@id/filter_dialog_order_asc"
-                app:layout_constraintTop_toBottomOf="@id/filter_dialog_order"
-        />
+            android:id="@+id/filter_dialog_order_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.RF.Body2"
+            android:background="@drawable/filter_option_selector"
+            android:text="@string/order_desc"
+            android:padding="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="50dp"
+            app:layout_constraintStart_toEndOf="@id/filter_dialog_order_asc"
+            app:layout_constraintTop_toBottomOf="@id/filter_dialog_order" />
 
         <Button
-                android:id="@+id/filter_dialog_submit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/rounded_corner_bg"
-                android:backgroundTint="@color/zomato_red"
-                android:textColor="@color/white"
-                android:text="@string/apply"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filter_dialog_order_asc"
-        />
-
-
+            android:id="@+id/filter_dialog_submit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/rounded_corner_bg"
+            android:backgroundTint="@color/zomato_red"
+            android:textAppearance="@style/TextAppearance.RF.Button"
+            android:textColor="@color/white"
+            android:text="@string/apply"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/filter_dialog_order_asc" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

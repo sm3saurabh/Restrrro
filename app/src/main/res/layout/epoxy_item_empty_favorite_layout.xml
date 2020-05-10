@@ -23,8 +23,7 @@
             android:layout_height="wrap_content"
             android:text="@string/empty_favorite"
             android:textAlignment="center"
-            android:textSize="20sp"
-            android:textColor="@color/black" />
+            android:textAppearance="@style/TextAppearance.RF.Headline6" />
 
     </LinearLayout>
 </layout>
