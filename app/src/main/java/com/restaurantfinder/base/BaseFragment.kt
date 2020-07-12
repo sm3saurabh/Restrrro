@@ -17,13 +17,23 @@ abstract class BaseFragment<VM: ViewModel, B: ViewDataBinding>: Fragment() {
 
     abstract fun getLayoutId(): Int
 
-    lateinit var binding: B
+    private var _binding: B? = null
+
+    // We won't interact with or access binding after the view is destroyed
+    // It's safe to assume that _binding won't when accesssing the following member
+    val binding: B
+        get() = _binding!!
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
+        _binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
 
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     fun hideKeyboard() {
