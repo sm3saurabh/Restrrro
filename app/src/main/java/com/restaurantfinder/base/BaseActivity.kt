@@ -12,13 +12,24 @@ abstract class BaseActivity<VM: ViewModel, B: ViewDataBinding>: AppCompatActivit
 
     abstract fun getLayoutId(): Int
 
-    lateinit var binding: B
+    private var _binding: B? = null
+
+    // We won't interact with or access binding after the view is destroyed
+    // It's safe to assume that _binding won't when accesssing the following member
+    val binding: B
+        get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, getLayoutId())
+        _binding = DataBindingUtil.setContentView(this, getLayoutId())
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        _binding = null
     }
 
 }
