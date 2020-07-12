@@ -7,7 +7,6 @@ import com.restaurantfinder.base.BaseActivity
 import com.restaurantfinder.databinding.ActivityDashboardBinding
 import com.restaurantfinder.ui.dashboard.favorites.FavoritesFragment
 import com.restaurantfinder.ui.dashboard.home.HomeFragment
-import com.restaurantfinder.utils.TAG
 import com.restaurantfinder.utils.nonNull
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -21,13 +20,9 @@ class DashboardActivity : BaseActivity<DashboardViewModel, ActivityDashboardBind
     }
     // Base Activity overrides --end
 
-    private val homeFragment by lazy { HomeFragment() }
-    private val favoritesFragment by lazy { FavoritesFragment() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setupFragments()
 
         setupClickListeners()
 
@@ -35,25 +30,24 @@ class DashboardActivity : BaseActivity<DashboardViewModel, ActivityDashboardBind
 
     }
 
-    private fun setupFragments() {
-        supportFragmentManager.beginTransaction().add(R.id.dashboard_fragment_container, homeFragment, homeFragment.TAG).commit()
-        supportFragmentManager.beginTransaction().add(R.id.dashboard_fragment_container, favoritesFragment, favoritesFragment.TAG).commit()
-    }
-
     private fun setupClickListeners() {
-        binding.dashboardNavHomeContainer.setOnClickListener {
-            viewModel.switchDashboardState(DashboardViewModel.DashboardState.Home)
-        }
 
-        binding.dashboardNavFavoriteContainer.setOnClickListener {
-            viewModel.switchDashboardState(DashboardViewModel.DashboardState.Favorites)
+        binding.dashboardBottomNav.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.bottom_nav_menu_home -> {
+                    viewModel.switchDashboardState(DashboardViewModel.DashboardState.Home)
+                }
+                R.id.bottom_nav_menu_fav -> {
+                    viewModel.switchDashboardState(DashboardViewModel.DashboardState.Favorites)
+                }
+            }
+
+            true
         }
     }
 
     private fun startObserving() {
         viewModel.currentState.nonNull().observe(this) { state ->
-            binding.shouldShowHome = state == DashboardViewModel.DashboardState.Home
-
             switchFragments(state)
         }
     }
@@ -61,14 +55,15 @@ class DashboardActivity : BaseActivity<DashboardViewModel, ActivityDashboardBind
     private fun switchFragments(state: DashboardViewModel.DashboardState) {
 
         when (state) {
-            DashboardViewModel.DashboardState.Home -> toggleFragment(homeFragment, favoritesFragment)
-            DashboardViewModel.DashboardState.Favorites -> toggleFragment(favoritesFragment, homeFragment)
+            DashboardViewModel.DashboardState.Home -> toggleFragment(HomeFragment())
+            DashboardViewModel.DashboardState.Favorites -> toggleFragment(FavoritesFragment())
         }
 
     }
 
-    private fun toggleFragment(show: Fragment, hide: Fragment) {
-        supportFragmentManager.beginTransaction().show(show).hide(hide).commit()
+    private fun toggleFragment(show: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.dashboard_fragment_container, show, show.tag).commit()
     }
 
 
