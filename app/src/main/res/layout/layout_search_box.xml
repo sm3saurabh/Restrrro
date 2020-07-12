@@ -42,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:src="@{ isIdle ? @drawable/ic_search_black_24dp : @drawable/back_arrow }"
+                android:tint="?attr/colorOnPrimary"
                 tools:src="@drawable/ic_search_black_24dp" />
 
             <EditText
@@ -64,8 +65,8 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:src="@drawable/ic_close_black_24dp"
-                android:tint="@{ isEditing ? @color/black : @color/inactive_grey }"
-                tools:tint="@color/inactive_grey" />
+                android:tint="@{ isEditing ? @color/colorOnPrimary : @color/colorSecondaryLight }"
+                tools:tint="@color/colorSecondaryLight" />
 
         </LinearLayout>
 

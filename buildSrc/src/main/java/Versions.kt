@@ -8,6 +8,7 @@ object Versions {
     const val LIFECYCLE_VERSION = "2.2.0"
     const val COROUTINE_VERSION = "1.3.5"
     const val APP_COMPAT_VERSION = "1.0.0-beta01"
+    const val MATERIAL_VERSION = "1.2.0-alpha06"
     const val CORE_KTX_VERSION = "1.3.0-rc01"
     const val JUNIT_VERSION = "4.12"
     const val TEST_RUNNER_VERSION = "1.1.0-alpha4"

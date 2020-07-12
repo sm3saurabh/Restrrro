@@ -27,6 +27,8 @@ class HomeController(private val eventHandler: EventHandler) :
             HomeState.Idle -> buildIdleHomeState(data.currentLocation)
             HomeState.Searching -> buildSearchingItem()
             HomeState.SearchResult -> buildSearchResults(data.restaurantSearchResult)
+            HomeState.SearchEditing -> {
+            }
         }
     }
 

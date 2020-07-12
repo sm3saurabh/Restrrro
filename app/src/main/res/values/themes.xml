@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Inspired by Material Theme Builder "https://github.com/material-components/material-components-android-examples/tree/develop/MaterialThemeBuilder" -->
+    <style name="Base.Theme.RF.Parent" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor" tools:ignore="NewApi">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">
+            ?android:attr/colorBackground
+        </item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">
+            ?attr/colorControlHighlight
+        </item>
+    </style>
+
+    <style name="Base.Theme.RF" parent="Base.Theme.RF.Parent">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryLight</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryDark</item>
+
+        <!--colorBackground appears behind scrollable content and is used for the default window-->
+        <!--background. colorSurface is mapped to the surface of components such as cards, sheets-->
+        <!--and menus. colorError is used to indicate an error state for components such as-->
+        <!--text fields.-->
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorSurface">@color/colorBackground</item>
+        <item name="colorError">@color/colorError</item>
+
+        <!--"On" colors define how text, icons and strokes are colored in relation to the surface-->
+        <!--on which they appear.-->
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorOnError">@color/colorOnError</item>
+
+        <!--Material type attributes-->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.RF.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.RF.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.RF.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.RF.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.RF.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.RF.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.RF.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.RF.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.RF.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.RF.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.RF.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.RF.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.RF.Overline</item>
+    </style>
+
+    <style name="Theme.RF" parent="Base.Theme.RF" />
+
+
+</resources>

@@ -15,7 +15,7 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:contentDescription="@string/empty_favorite_description"
-            android:tint="@color/favorite_yellow"
+            android:tint="?attr/colorPrimary"
             android:src="@drawable/ic_close_black_24dp" />
 
         <TextView
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:text="@string/empty_favorite"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.RF.Headline6" />
+            android:textAppearance="?attr/textAppearanceHeadline6" />
 
     </LinearLayout>
 </layout>

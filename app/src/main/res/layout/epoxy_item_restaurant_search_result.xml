@@ -30,7 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:urlOfImage="@{ restaurant.thumbnailUrl }"
-            tools:src="@drawable/ic_favorite_black_24dp" />
+            tools:src="@drawable/ic_favorite" />
 
         <TextView
             android:id="@+id/restaurant_result_name"
@@ -39,7 +39,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="4dp"
             android:text="@{ restaurant.restaurantName }"
-            android:textAppearance="@style/TextAppearance.RF.Subtitle1"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             app:layout_constraintEnd_toStartOf="@id/restaurant_result_rating"
             app:layout_constraintStart_toEndOf="@id/restaurant_result_thumb"
             app:layout_constraintTop_toTopOf="@id/restaurant_result_thumb"
@@ -52,7 +52,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="4dp"
             android:text="@{ restaurant.locationName }"
-            android:textAppearance="@style/TextAppearance.RF.Body2"
+            android:textAppearance="?attr/textAppearanceBody2"
             app:layout_constraintEnd_toStartOf="@id/restaurant_result_favorite"
             app:layout_constraintStart_toEndOf="@id/restaurant_result_thumb"
             app:layout_constraintTop_toBottomOf="@id/restaurant_result_name"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="4dp"
-            android:textAppearance="@style/TextAppearance.RF.Caption"
+            android:textAppearance="?attr/textAppearanceCaption"
             android:text="@{ @string/restaurant_result_average_cost(restaurant.averageCostForTwo) }"
             app:layout_constraintStart_toEndOf="@id/restaurant_result_thumb"
             app:layout_constraintTop_toBottomOf="@id/restaurant_result_location"
@@ -78,9 +78,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:padding="2dp"
+            android:textAppearance="?attr/textAppearanceOverline"
             android:text="@{ restaurant.userRating.aggregateRating }"
-            android:textColor="@color/white"
-            android:textSize="12sp"
             app:customBackgroundColor="@{ restaurant.userRating.ratingColor }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/restaurant_result_name"
@@ -92,8 +91,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{ favoriteClickListener }"
             android:padding="8dp"
-            android:src="@drawable/ic_favorite_black_24dp"
-            android:tint="@{ restaurant.isFavorite ? @color/favorite_yellow : @color/black }"
+            android:src="@drawable/ic_favorite"
+            android:tint="@{ restaurant.isFavorite ? @color/colorPrimary : @color/colorOnBackground }"
             app:layout_constraintBottom_toBottomOf="@id/restaurant_result_average_cost"
             app:layout_constraintEnd_toEndOf="parent" />
 
