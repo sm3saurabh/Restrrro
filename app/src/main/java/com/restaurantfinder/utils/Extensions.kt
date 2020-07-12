@@ -60,9 +60,9 @@ fun checkMainThread() = check(Looper.myLooper() == Looper.getMainLooper()) {
     "This method needs to called from the main thread"
 }
 
-fun <T> Flow<T>.startImmediately(block: () -> T?): Flow<T> {
+fun <T> Flow<T>.startImmediately(block: () -> T): Flow<T> {
     return onStart {
-        block()?.let { emit(it) }
+        emit(block())
     }
 }
 
