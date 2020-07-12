@@ -30,7 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:urlOfImage="@{ restaurant.thumbnailUrl }"
-            tools:src="@drawable/ic_favorite_black_24dp" />
+            tools:src="@drawable/ic_favorite" />
 
         <TextView
             android:id="@+id/restaurant_result_name"
@@ -91,8 +91,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{ favoriteClickListener }"
             android:padding="8dp"
-            android:src="@drawable/ic_favorite_black_24dp"
-            android:tint="@{ restaurant.isFavorite ? @color/favorite_yellow : @color/black }"
+            android:src="@drawable/ic_favorite"
+            android:tint="@{ restaurant.isFavorite ? @color/colorPrimary : @color/colorOnBackground }"
             app:layout_constraintBottom_toBottomOf="@id/restaurant_result_average_cost"
             app:layout_constraintEnd_toEndOf="parent" />
 
