@@ -21,7 +21,7 @@
             android:id="@+id/dashboard_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/dashboard_bottom_nav_container"
+            app:layout_constraintBottom_toTopOf="@id/dashboard_bottom_nav"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -31,67 +31,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:menu="@menu/bottom_nav_menu" />
 
-        <LinearLayout
-            android:id="@+id/dashboard_bottom_nav_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <LinearLayout
-                android:id="@+id/dashboard_nav_home_container"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@{ shouldShowHome ? @color/colorError : @color/colorBackground }"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:id="@+id/dashboard_nav_home_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_home_black_24dp"
-                    android:tint="@{ shouldShowHome ? @color/white : @color/black }" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home"
-                    android:textAppearance="?attr/textAppearanceCaption"
-                    android:textColor="@{ shouldShowHome ? @color/white : @color/black }" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/dashboard_nav_favorite_container"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@{ shouldShowHome ? @color/white : @color/zomato_red }"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:id="@+id/dashboard_nav_favorite_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_favorite_black_24dp"
-                    android:tint="@{ shouldShowHome ? @color/black : @color/white }" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/favorites"
-                    android:textAppearance="?attr/textAppearanceCaption"
-                    android:textColor="@{ shouldShowHome ? @color/black : @color/white }" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

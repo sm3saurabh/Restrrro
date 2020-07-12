@@ -45,6 +45,7 @@ object Dependencies {
     const val picasso = "com.squareup.picasso:picasso:${Versions.PICASSO_VERSION}"
 
     const val appCompat = "androidx.appcompat:appcompat:${Versions.APP_COMPAT_VERSION}"
+    const val material = "com.google.android.material:material:${Versions.MATERIAL_VERSION}"
     const val androidXLegacySupport = "androidx.legacy:legacy-support-v4:${Versions.ANDROIDX_LEGACY_SUPPORT_VERSION}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.CORE_KTX_VERSION}"
 
@@ -56,6 +57,7 @@ object Dependencies {
 
 fun DependencyHandler.appCompat() {
     implementation(Dependencies.appCompat)
+    implementation(Dependencies.material)
     implementation(Dependencies.androidXLegacySupport)
     implementation(Dependencies.coreKtx)
 }

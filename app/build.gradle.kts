@@ -57,6 +57,7 @@ dependencies {
     implementation(Dependencies.picasso)
     implementation(Dependencies.location)
     implementation(Dependencies.retrofit)
+    kapt(Dependencies.roomAnnotationProcessor)
 
 
     // Groups of dependencies
