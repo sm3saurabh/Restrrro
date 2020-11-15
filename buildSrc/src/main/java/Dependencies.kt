@@ -14,8 +14,8 @@ object Dependencies {
     const val roomAnnotationProcessor = "androidx.room:room-compiler:${Versions.ROOM_VERSION}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.ROOM_VERSION}"
 
-    const val kotlinSerialRuntime =
-        "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.KOTLIN_SERIALIZATION_VERSION}"
+    const val kotlinSerializationJson =
+        "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.KOTLIN_SERIALIZATION_VERSION}"
     const val kotlinSerialConverter =
         "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.KOTLIN_SERIALIZATION_CONVERTER_VERSION}"
 
@@ -80,7 +80,7 @@ fun DependencyHandler.lifecycle() {
 }
 
 fun DependencyHandler.kotlinSerialization() {
-    implementation(Dependencies.kotlinSerialRuntime)
+    implementation(Dependencies.kotlinSerializationJson)
     implementation(Dependencies.kotlinSerialConverter)
 }
 

@@ -1,10 +1,10 @@
 
 plugins {
     id("com.android.application")
-    id("kotlinx-serialization")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+    kotlin("plugin.serialization")
 }
 
 android {
@@ -66,6 +66,5 @@ dependencies {
     defaultTests()
     lifecycle()
     room()
-
-
+    kotlinSerialization()
 }

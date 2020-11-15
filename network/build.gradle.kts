@@ -1,9 +1,9 @@
 plugins {
     id("com.android.library")
-    id("kotlinx-serialization")
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+    kotlin("plugin.serialization")
 }
 
 

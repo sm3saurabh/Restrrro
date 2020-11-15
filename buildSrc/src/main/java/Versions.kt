@@ -1,7 +1,7 @@
 object Versions {
 
     const val GRADLE_PLUGIN_VERSION = "3.6.3"
-    const val KOTLIN_VERSION = "1.3.70"
+    const val KOTLIN_VERSION = "1.4.10"
     const val BUILD_TOOLS_VERSION = "29.0.2"
     const val RETROFIT_VERSION = "2.8.1"
     const val ROOM_VERSION = "2.2.5"
@@ -13,8 +13,8 @@ object Versions {
     const val JUNIT_VERSION = "4.12"
     const val TEST_RUNNER_VERSION = "1.1.0-alpha4"
     const val ESPRESSO_VERSION = "3.1.0-alpha4"
-    const val KOTLIN_SERIALIZATION_VERSION = "0.20.0"
-    const val KOTLIN_SERIALIZATION_CONVERTER_VERSION = "0.5.0"
+    const val KOTLIN_SERIALIZATION_VERSION = "1.0.1"
+    const val KOTLIN_SERIALIZATION_CONVERTER_VERSION = "0.8.0"
     const val KOIN_VERSION = "2.1.5"
     const val TRANSITION_VERSION = "1.3.1"
     const val RECYCLER_VIEW_VERSION = "1.1.0"
